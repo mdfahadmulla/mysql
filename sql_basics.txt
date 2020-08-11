@@ -68,3 +68,22 @@ ex:
 ex:
 	ALTER TABLE customer  
 	DROP COLUMN cus_address;
+
+5)Rename Column
+    ALTER TABLE table_name  
+    CHANGE COLUMN old_name new_name   
+    column_definition  
+    ;
+
+ex:
+     ALTER TABLE  cus_tbl  
+    CHANGE COLUMN cus_surname cus_title  
+    varchar(20) NOT NULL;   
+
+6)Rename Table
+     ALTER TABLE  cus_tbl  
+    CHANGE COLUMN cus_surname cus_title  
+    varchar(20) NOT NULL;  
+
+7)Truncate
+	Removes all the content of the table without removing table structure
