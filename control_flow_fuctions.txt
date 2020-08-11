@@ -1,0 +1,54 @@
+CONTROL FLOW FUNCTIONS
+
+1)IF()
+
+IF(expr1 , expr2)
+
+ex:
+SELECT IF(220>350 , 'YES','NO');
+O/P:NO
+
+ex;
+    SELECT Name,  
+    IF(age>20,"Mature","Immature")    
+    As Result  
+    FROM student;
+
+
+2)IFNULL()
+IFNULL (Expression1, Expression2)  
+	  
+ex:
+SELECT IFNULL(0,5);
+o/p:0
+
+ex;
+SELECT IFNULL(NULL,5);
+O/P:5
+
+ex:
+    SELECT   
+        contactname, IFNULL(cellphone, homephone) phone  
+    FROM  
+        student_contact;
+
+
+
+3)NULLIF()
+NULLIF (Expr1, Expr2)
+Returns NULL if Expr1=Expr2,else returns expr1.
+
+ex:
+NULLIF('ABC','ABC');
+O/P:NULL
+
+
+ex: 
+SELECT cust_name, occupation, qualification,   
+NULLIF (qualification,"BE") result   
+FROM myproductdb.customer; 
+
+
+
+4)CASE
+
