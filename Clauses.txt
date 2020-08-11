@@ -1,0 +1,121 @@
+CLAUSES
+
+
+1) WHERE CLAUSE
+
+WHERE conditions;
+
+a)where with single condition
+SELECT *  
+FROM officers  
+WHERE address = 'Mau'; 
+
+b)Where with AND condition
+
+    SELECT *  
+    FROM officers  
+    WHERE address = 'Lucknow'  
+    AND officer_id < 5;  
+finds rows with address=Lucknow and id=5
+
+c)Where with OR condition
+
+    SELECT *  
+    FROM officers  
+    WHERE address = 'Lucknow'  
+    OR address = 'Mau';  
+finds rows with address= lucknow or address=mau
+
+
+2)DISTINCT CLAUES
+
+    SELECT DISTINCT expressions  
+    FROM tables  
+    [WHERE conditions];  
+
+Used to remove Duplicate records from table and fetch only unique records.
+
+
+3)FROM CLAUSE
+
+FROM Clause is used to select some record from a table.It can also be used to retrieve records from multiple tables using JOIN operation.
+
+FROM table1 
+[ { INNER JOIN | LEFT [OUTER] JOIN| RIGHT [OUTER] JOIN } table2  
+ON table1.column1 = table2.column1 ]
+
+
+a)Retrieve data from one table
+
+SELECT *  
+FROM officers  
+WHERE officer_id <= 3;
+
+b)Retrieve data from 2 tables using Inner join
+
+SELECT table1.officer_name,table2.student_name
+FROM table2
+INNER JOIN table1
+ON table2.student_id=table1.officer_id;
+
+c)Retrieve data from 2 tables using LEFT OUTER JOIN
+
+SELECT table1.officer_name,table2.student_name
+FROM table1
+LEFT OUTER JOIN table2
+ON table1.officer_id=table2.student_id;
+
+
+
+4)ORDER BY CLAUSE
+ ORDER BY Clause is used to sort the records in ascending or descending order.(default is ASC)
+
+SELECT expressions  
+FROM tables  
+[WHERE conditions]  
+ORDER BY expression [ ASC | DESC ]; 
+
+ex;
+SELECT *  
+FROM officers  
+WHERE address = 'Lucknow'  
+ORDER BY officer_name; 
+
+ex:
+SELECT *  
+FROM officers  
+WHERE address = 'Lucknow'  
+ORDER BY officer_name DESC;
+
+ex:
+SELECT *  
+FROM officers  
+WHERE id < 5  
+ORDER BY officer_name ASC, address DESC; 
+
+5)GROUP CLAUSE
+GROUP BY Clause is used to collect data from multiple records and group the result by one or more column. It is generally used in a SELECT statement.Used with functions such as SUM,COUNT,MAX etc
+
+ex:
+SELECT address, COUNT(*)  
+FROM   officers   
+GROUP BY address; 
+
+6)HAVING CLAUSE
+HAVING is used with GROUP clause ,it returns the rows if the condition is true.
+
+SELECT expr,Function(expr)
+FROM table
+WHERE conditions
+GROUP BY expr
+HAVING condition;
+
+ex;
+    SELECT emp_name, SUM(working_hours) AS "Total working hours"  
+    FROM employees  
+    GROUP BY emp_name  
+    HAVING SUM(working_hours) > 5;  
+
+
+
+ 
