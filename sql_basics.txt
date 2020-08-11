@@ -1,0 +1,70 @@
+MYSQL BASICS
+
+1)Create Table
+CREATE TABLE [IF NOT EXISTS] table_name(  
+    column_definition1,  
+    column_definition2,  
+    ........,  
+    table_constraints  
+); 
+
+ex:
+    mysql> CREATE TABLE employee_table(  
+        id int NOT NULL AUTO_INCREMENT,  
+        name varchar(45) NOT NULL,  
+        occupation varchar(35) NOT NULL,  
+        age int NOT NULL,  
+        PRIMARY KEY (id)  
+    );  
+
+2)Describe Table
+mysql> DESCRIBE employee_table;  
+
+Output:
+Field	Type	Null	Key	Default	Extra
+id	int	NO	PRI	NULL	auto_increment
+name	varchar(45)	NO		NULL	
+occupation	varchar(35)	NO		NULL	
+age	int	NO		NULL	
+
+3) Alter Table
+a)Add single column
+
+   	 ALTER TABLE table_name  
+    	ADD new_column_name column_definition  
+   	 ; 
+ex:
+    ALTER TABLE Customer  
+    ADD customer_age varchar(40) NOT NULL;  
+
+
+b)Add multiple Columns
+
+ 	ALTER TABLE table_name  
+ 	ADD new_column_name column_definition  
+	ADD new_column_name column_definition    
+	;
+
+ex:
+	ALTER TABLE cus_tbl  
+	ADD cus_address varchar(100) NOT NULL  
+	AFTER cus_surname,  
+	ADD cus_salary int(100) NOT NULL  
+	AFTER cus_age ; 
+
+3)Modify Columns
+	ALTER TABLE table_name  
+	MODIFY column_name column_definition  
+	;
+
+ex:
+	    ALTER TABLE cus_tbl  
+   	 MODIFY cus_surname varchar(50) NULL;  
+
+4)Drop Table
+
+    ALTER TABLE table_name  
+    DROP COLUMN column_name;  
+ex:
+	ALTER TABLE customer  
+	DROP COLUMN cus_address;
