@@ -1,4 +1,5 @@
 MYSQL Queries 
+
 1) Create 
 
 create database db1;  
@@ -40,3 +41,72 @@ truncate table Customers;
 8)Drop table
 
 Drop table table_name;
+
+
+CONSTRAINTS
+1)NOT NULL
+
+Value cannot be null or empty
+
+2)UNIQUE
+
+All values must be unique, no duplicate values.
+
+3)CHECK(EXPR)
+
+     CREATE TABLE Persons (  
+     ID int NOT NULL,  
+     Name varchar(45) NOT NULL,  
+      Age int CHECK (Age>=18)  
+    );  
+checks if age is above 18 ,otherwise throws error.
+
+
+4)DEFAULT
+
+     CREATE TABLE Persons (  
+      ID int NOT NULL,  
+      Name varchar(45) NOT NULL,  
+      Age int,  
+      City varchar(25) DEFAULT 'New York'  
+    );  
+takes the default value if not specified in insert statement.
+
+5)PRIMARY KEY
+
+CREATE TABLE Persons (  
+    ID int NOT NULL PRIMARY KEY,   
+    Name varchar(45) NOT NULL,   
+    Age int,   
+    City varchar(25));
+used to identify each record in a table uniquely.
+
+
+6)FOREIGN KEY
+CREATE TABLE Orders (  
+    Order_ID int NOT NULL PRIMARY KEY,  
+    Order_Num int NOT NULL,  
+    Person_ID int,  
+    FOREIGN KEY (Person_ID) REFERENCES Persons(Person_ID) 
+
+used to link two tables together.A foreign key column matches the primary key field of another table.
+
+7)AUTO INCREMENT
+
+CREATE TABLE Animals(  
+id int NOT NULL AUTO_INCREMENT)
+;
+constraint automatically generates a unique number whenever we insert a new record into the table.
+
+8)ENUM
+ 
+    CREATE TABLE Shirts (    
+    id INT PRIMARY KEY AUTO_INCREMENT,     
+    name VARCHAR(35),     
+    size ENUM('small', 'medium', 'large', 'x-large')    
+);
+
+value of size must be only of the options specified.
+
+
+
