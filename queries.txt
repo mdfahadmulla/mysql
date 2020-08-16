@@ -1,6 +1,6 @@
 MYSQL Queries 
 
-1) Create 
+1) Create (Create a database)
 
 create database db1;  
 
@@ -17,15 +17,15 @@ Select database;
 ALTER TABLE customers   
 ADD age varchar(50);  
 
-3)Insert
+3)Insert (inserting into table values)
 
  insert into customers values(101,'rahul','delhi');  
 
-4)Update
+4)Update (Update table values)
 
 update customers set name='bob', city='london' where id=10
 
-5)Delete
+5)Delete (Delete table value)
 
 delete from customers where id=101;  
 
@@ -38,7 +38,7 @@ Select * from table_name;
 
 truncate table Customers;
 
-8)Drop table
+8)Drop table (delete table and its content)
 
 Drop table table_name;
 
